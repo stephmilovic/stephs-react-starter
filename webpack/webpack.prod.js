@@ -3,6 +3,7 @@ const commonPaths = require('./paths');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const reset = require('node-reset-scss').includePath;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
     mode: 'production',
     output: {

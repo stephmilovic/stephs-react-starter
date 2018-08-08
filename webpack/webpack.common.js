@@ -37,7 +37,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: commonPaths.images,
+                            outputPath: commonPaths.fontsFolder,
                         },
                     },
                 ],
@@ -46,9 +46,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            components: commonPaths.components,
             src: commonPaths.src,
-            images: commonPaths.images,
         },
         extensions: ['*', '.js', '.jsx'],
     },
@@ -56,6 +54,9 @@ module.exports = {
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
             template: commonPaths.templatePath,
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(process.env.NODE_ENV),
         }),
     ],
 };
