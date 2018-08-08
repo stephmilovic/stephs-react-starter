@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from 'components/nav';
-import style from './main.scss';
-
+import App from './App';
+import { BrowserRouter } from 'react-router-dom'
 const title = 'My Minimal React Webpack Babel Setup';
 
 ReactDOM.render(
-    <div>
-        <Nav />
-        {title}
-    </div>,
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
     document.getElementById('app')
 );
 
