@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Roster from 'src/components/roster';
+import Roster from 'src/routes/roster';
 import Home from 'src/components/home';
 import Schedule from 'src/components/schedule';
 

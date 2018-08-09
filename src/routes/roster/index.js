@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import FullRoster from 'src/components/full-roster';
-import Player from 'src/components/player';
+import FullRoster from 'src/components/full-roster/FullRosterView';
+import Player from 'src/components/player/PlayerView';
 
 export default () => (
     <Switch>

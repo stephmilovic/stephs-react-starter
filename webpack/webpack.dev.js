@@ -8,6 +8,7 @@ module.exports = {
         filename: '[name].js',
         path: commonPaths.outputPath,
         chunkFilename: '[name].js',
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -38,6 +39,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: './dist',
-        hot: true
+        hot: true,
+        historyApiFallback: true,
     },
 };

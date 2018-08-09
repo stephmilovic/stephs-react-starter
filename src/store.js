@@ -1,11 +1,7 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import message from 'src/reducers/message';
+import { createStore, applyMiddleware } from 'redux';
+import reducer from 'src/reducers';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-
-const reducer = combineReducers({
-    message,
-});
 
 const store = createStore(
     reducer,
