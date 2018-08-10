@@ -10,7 +10,7 @@ export default ({isLoading, schedule, hasError}) => {
     }
     return (
         <div>
-            <h3 style={{marginBottom: '.4em'}}>Schedule</h3>
+            <h3>Schedule</h3>
             <ul>
                 {schedule.length ? schedule.map((game, i) => {
                     return (
@@ -22,4 +22,4 @@ export default ({isLoading, schedule, hasError}) => {
             </ul>
         </div>
     );
-}
+};

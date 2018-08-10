@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default ({onSubmit, handleInputChange, name, position, number}) => {
+export default ({onSubmit, handleInputChange, name, position}) => {
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} style={{marginTop: '1em'}}>
+            <h3>Add a new player</h3>
             <input
                 name="name"
                 type="text"

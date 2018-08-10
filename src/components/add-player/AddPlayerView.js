@@ -11,12 +11,12 @@ export default compose(
     withState('name', 'setname', ''),
     withState('position', 'setposition', ''),
     withHandlers({
-        onSubmit: ({name, position, createNewPlayer}) => e => {
+        onSubmit: props => e => {
+            const {name, position, createNewPlayer} = props;
             e.preventDefault();
             createNewPlayer({name, position});
-        },
-        onChange: props => value => {
-            props.setValue(value);
+            props.setname('');
+            props.setposition('');
         },
         handleInputChange: props => event => {
             const target = event.target;
@@ -24,6 +24,6 @@ export default compose(
             const inputName = target.name;
 
             props[`set${inputName}`](value);
-        }
+        },
     }),
 )(AddPlayerRender);
