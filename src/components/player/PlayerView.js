@@ -1,7 +1,18 @@
 import {connect} from 'react-redux';
 import {playersFetchData} from 'src/actions/async';
 import {compose, lifecycle} from 'recompose';
-import PlayerRender from 'src/components/player/PlayerRender';
+import PropTypes from 'prop-types';
+import Player from 'src/components/player/PlayerRender';
+
+Player.displayName = 'Player';
+
+Player.propTypes = {
+    player: PropTypes.shape({
+        name: PropTypes.string,
+        number: PropTypes.number,
+        position: PropTypes.string,
+    }),
+};
 
 export default compose(
     connect(
@@ -22,4 +33,4 @@ export default compose(
             }
         },
     }),
-)(PlayerRender);
+)(Player);

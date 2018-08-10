@@ -1,7 +1,16 @@
 import {connect} from 'react-redux';
 import {playersFetchData} from 'src/actions/async';
 import {compose, lifecycle} from 'recompose';
-import FullRosterRender from 'src/components/full-roster/FullRosterRender';
+import PropTypes from 'prop-types';
+import FullRoster from 'src/components/full-roster/FullRosterRender';
+
+FullRoster.displayName = 'FullRoster';
+
+FullRoster.propTypes = {
+    players: PropTypes.string.isRequired,
+    isLoading: PropTypes.func.isRequired,
+    hasError: PropTypes.func.isRequired,
+};
 
 export default compose(
     connect(
@@ -21,4 +30,4 @@ export default compose(
             }
         },
     }),
-)(FullRosterRender);
+)(FullRoster);

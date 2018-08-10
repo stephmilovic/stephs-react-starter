@@ -1,7 +1,17 @@
 import {connect} from 'react-redux';
 import {compose, withHandlers, withState} from 'recompose';
+import PropTypes from 'prop-types';
 import { createNewPlayer } from 'src/actions/async';
-import AddPlayerRender from 'src/components/add-player/AddPlayerRender';
+import AddPlayer from 'src/components/add-player/AddPlayerRender';
+
+AddPlayer.displayName = 'AddPlayer';
+
+AddPlayer.propTypes = {
+    name: PropTypes.string.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    position: PropTypes.string.isRequired,
+};
 
 export default compose(
     connect(
@@ -26,4 +36,4 @@ export default compose(
             props[`set${inputName}`](value);
         },
     }),
-)(AddPlayerRender);
+)(AddPlayer);
