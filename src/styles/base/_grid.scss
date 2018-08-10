@@ -1,0 +1,12 @@
+@import "grid-settings";
+
+.row {
+  @include outer-container;
+  width: 100%;
+}
+
+@include media($max-width-down) {
+  .row {
+    padding: 0 2%;
+  }
+}

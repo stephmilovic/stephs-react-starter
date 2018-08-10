@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import {roster} from 'src/reducers/players';
-import message from 'src/reducers/message';
+import {schedule} from 'src/reducers/schedule';
 
 const reducer = combineReducers({
-    message,
     roster,
+    schedule,
 });
 
 export default reducer;

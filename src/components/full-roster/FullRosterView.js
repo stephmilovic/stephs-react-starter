@@ -16,7 +16,9 @@ export default compose(
     ),
     lifecycle({
         componentDidMount() {
-            this.props.playersFetchData();
+            if (!Object.keys(this.props.players).length) {
+                this.props.playersFetchData();
+            }
         },
     }),
 )(FullRosterRender);

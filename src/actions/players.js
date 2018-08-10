@@ -3,6 +3,7 @@ import {
     PLAYERS_ARE_LOADING,
     PLAYERS_FETCH_DATA_SUCCESS,
     PLAYER_FETCH_DATA_SUCCESS,
+    ADD_NEW_PLAYER,
 } from 'src/types';
 
 export function playersHaveError(bool) {
@@ -27,9 +28,15 @@ export function playersFetchDataSuccess(players) {
 }
 
 export function playerFetchDataSuccess(player) {
-    console.log('playerFetchDataSuccess', player);
     return {
         type: PLAYER_FETCH_DATA_SUCCESS,
+        player,
+    };
+}
+
+export function addNewPlayer(player) {
+    return {
+        type: ADD_NEW_PLAYER,
         player,
     };
 }

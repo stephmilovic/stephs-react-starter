@@ -47,6 +47,7 @@ module.exports = {
     resolve: {
         alias: {
             src: commonPaths.src,
+            helpers: commonPaths.helpers,
         },
         extensions: ['*', '.js', '.jsx'],
     },

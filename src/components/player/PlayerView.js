@@ -1,23 +1,25 @@
 import {connect} from 'react-redux';
-import {playerFetchData} from 'src/actions/async';
+import {playersFetchData} from 'src/actions/async';
 import {compose, lifecycle} from 'recompose';
 import PlayerRender from 'src/components/player/PlayerRender';
 
 export default compose(
     connect(
-        state => {
-            const {roster} = state;
+        ({roster}, ownProps) => {
             return {
-                player: roster.player,
+                players: roster.players,
+                player: roster.players[ownProps.match.params.number],
                 hasError: roster.playersHaveError,
                 isLoading: roster.playersAreLoading,
             };
         },
-        { playerFetchData }
+        { playersFetchData }
     ),
     lifecycle({
         componentDidMount() {
-            this.props.playerFetchData(this.props.match.params.number);
+            if (!Object.keys(this.props.players).length) {
+                this.props.playersFetchData();
+            }
         },
     }),
 )(PlayerRender);

@@ -1,0 +1,36 @@
+// @import "neat"; // or "../neat/neat-helpers" when not in Rails
+
+// Neat Overrides
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: em(990);
+$neat-grid: (
+	columns: 12,
+	gutter: 20px,
+);
+// Neat Breakpoints
+$medium-screen: em(640);
+$large-screen: em(860);
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen);
+$large-screen-up: new-breakpoint(min-width $large-screen);
+$max-width-down: new-breakpoint(max-width $max-width);
+@mixin grid-container($grid: $neat-grid) {
+	@if $grid != $neat-grid {
+		@warn "`grid-container` does not use grid propertes.
+      Custom grids do not need to be passed in to this mixin.";
+	}
+
+	&::after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+@mixin outer-container() {
+	@include grid-container;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $max-width;
+}

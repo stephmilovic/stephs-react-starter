@@ -5,11 +5,10 @@ export default ({player}) => {
     if (!player) {
         return <div>Sorry, but the player was not found</div>;
     }
-    console.log('player', player);
     return (
         <div>
-            <h1>{player.name} (#{player.number})</h1>
-            <h2>Position: {player.position}</h2>
+            <h3>{player.name} (#{player.number})</h3>
+            <p>Position: {player.position}</p>
             <Link to="/roster">Back</Link>
         </div>
     );
