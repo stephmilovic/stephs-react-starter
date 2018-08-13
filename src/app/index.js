@@ -8,7 +8,7 @@ export default () =>
     <div className={styles['flexParent']}>
         <div className={styles['flexGrow'] + ' ' + styles['row']}>
             <div style={{width: '100%'}}>
-                <Header />
+                {/*<Header />*/}
                 <Main />
             </div>
         </div>

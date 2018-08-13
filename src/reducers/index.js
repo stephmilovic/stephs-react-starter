@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import {roster} from 'src/reducers/players';
-import {schedule} from 'src/reducers/schedule';
+import {selectForecastOption} from 'src/reducers/forecast';
+import {location} from 'src/reducers/location';
+
 
 const reducer = combineReducers({
-    roster,
-    schedule,
+    location,
+    forecastOption: selectForecastOption,
 });
 
 export default reducer;

@@ -1,32 +1,29 @@
 import {connect} from 'react-redux';
 import {compose, withHandlers, withState} from 'recompose';
 import PropTypes from 'prop-types';
-import { createNewPlayer } from 'src/actions/async';
-import AddPlayer from 'src/components/add-player/AddPlayerRender';
+import { getLocation } from 'src/actions/async';
+import LocationSearch from 'src/components/location-search/LocationSearchRender';
 
-AddPlayer.displayName = 'AddPlayer';
+LocationSearch.displayName = 'LocationSearch';
 
-AddPlayer.propTypes = {
-    name: PropTypes.string.isRequired,
+LocationSearch.propTypes = {
+    location: PropTypes.string.isRequired,
     handleInputChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
-    position: PropTypes.string.isRequired,
 };
 
 export default compose(
     connect(
         null,
-        { createNewPlayer }
+        { getLocation }
     ),
-    withState('name', 'setname', ''),
-    withState('position', 'setposition', ''),
+    withState('location', 'setlocation', ''),
     withHandlers({
         onSubmit: props => e => {
-            const {name, position, createNewPlayer} = props;
+            const {location, getLocation} = props;
             e.preventDefault();
-            createNewPlayer({name, position});
-            props.setname('');
-            props.setposition('');
+            getLocation(location);
+            props.setlocation('');
         },
         handleInputChange: props => event => {
             const target = event.target;
@@ -36,4 +33,4 @@ export default compose(
             props[`set${inputName}`](value);
         },
     }),
-)(AddPlayer);
+)(LocationSearch);
